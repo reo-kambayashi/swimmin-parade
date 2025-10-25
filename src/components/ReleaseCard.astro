@@ -23,24 +23,24 @@ const { release } = Astro.props;
     </div>
   </a>
   <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-    {release.links?.subscription && (
-      <a
-        href={release.links.subscription}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-pill btn-float focus-ring border border-white/40 bg-white/90 px-5 py-2 text-sm text-primary shadow-sm duration-200 hover:border-primary/50 sm:px-6 sm:text-base"
-      >
-        Subscription
-      </a>
-    )}
     {release.links?.youtube && (
       <a
         href={release.links.youtube}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn-pill btn-float focus-ring bg-red-600 px-5 py-2 text-sm text-white shadow-sm duration-200 hover:bg-red-700 sm:px-6 sm:text-base"
+        class="btn-pill btn-float focus-ring border border-white/40 bg-white/90 px-5 py-2 text-sm text-primary shadow-sm duration-200 hover:border-primary/50 sm:px-6 sm:text-base"
       >
         YouTube
+      </a>
+    )}
+    {release.links?.subscription && (
+      <a
+        href={release.links.subscription}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-pill btn-float focus-ring bg-red-600 px-5 py-2 text-sm text-white shadow-sm duration-200 hover:bg-red-700 sm:px-6 sm:text-base"
+      >
+        Subscription
       </a>
     )}
   </div>
