@@ -1,5 +1,6 @@
 ---
 import { releases } from '../data/releases.ts';
+import { getReleaseLinkClass } from '../styles/release-link-classes';
 
 const latestRelease = releases.find(r => r.isLatest);
 ---
@@ -72,27 +73,27 @@ const latestRelease = releases.find(r => r.isLatest);
               </p>
             )}
             <div class="flex flex-col gap-3 sm:flex-row sm:items-center" data-animate-stagger="0.08s">
-              <a
-                href={latestRelease.links.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-pill btn-float focus-ring w-full bg-primary px-6 py-3 text-base text-white duration-300 hover:bg-primary/90 sm:w-auto"
-                data-animate="fade-up"
-              >
-                Listen on YouTube
-              </a>
               {latestRelease.links?.subscription && (
                 <a
                   href={latestRelease.links.subscription}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn-pill btn-float focus-ring w-full border border-primary/30 px-6 py-3 text-base text-text duration-300 hover:border-primary/60 sm:w-auto"
+                  class={`${getReleaseLinkClass('primary')} w-full px-6 py-3 text-base duration-300 sm:w-auto`}
                   data-animate="fade-up"
                   data-animate-delay="0.08s"
                 >
                   Streaming Links
                 </a>
               )}
+              <a
+                href={latestRelease.links.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`${getReleaseLinkClass('secondary')} w-full px-6 py-3 text-base duration-300 sm:w-auto`}
+                data-animate="fade-up"
+              >
+                Listen on YouTube
+              </a>
             </div>
           </div>
         </div>
