@@ -1,16 +1,30 @@
----
----
-<section class="relative h-[calc(100vh-5rem)] flex items-center justify-center text-white overflow-hidden">
-  <div class="absolute inset-0 bg-primary/80 z-10"></div>
-  <div class="absolute inset-0">
-    <img src="/images/hero-background.jpg" alt="Band photo" class="w-full h-full object-cover">
+<section class="relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1d4ed8] to-[#38bdf8] text-white">
+  <div class="absolute inset-0 opacity-30" aria-hidden="true">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,#ffffff33,transparent_65%)] mix-blend-screen"></div>
   </div>
-  <div class="relative z-20 text-center px-4">
-    <h1 class="text-5xl md:text-7xl font-bold font-heading mb-4 animate-fade-in-up">swimmin' parade</h1>
-    <p class="text-xl md:text-2xl mb-8 animate-fade-in-up animation-delay-300">都市のノイズを、光に変える。</p>
-    <a href="/releases#latest" class="bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold py-3 px-8 rounded-full text-lg hover:scale-105 transition-transform duration-300 animate-fade-in-up animation-delay-600">
-      最新リリースを聴く
-    </a>
+  <div class="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 py-24 sm:py-32 md:flex-row md:items-center md:gap-16 lg:px-8 lg:py-36">
+    <div class="order-2 w-full max-w-xl md:order-1">
+      <div class="animate-fade-in-up rounded-3xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm shadow-pop">
+        <img
+          src="/images/Y102_swimmin' parade.jpg"
+          alt="swimmin' parade メンバーによるライブショット"
+          class="aspect-square w-full rounded-2xl object-contain"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </div>
+    <div class="order-1 max-w-2xl text-center md:order-2 md:text-left">
+      <h1 class="animate-fade-in-up font-heading text-4xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
+        swimmin' parade
+      </h1>
+      <a
+        href="/releases#latest"
+        class="animation-delay-600 animate-fade-in-up mt-10 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-accent px-10 py-3 text-lg font-semibold text-white shadow-pop transition-transform duration-300 hover:scale-[1.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        最新リリースを聴く
+      </a>
+    </div>
   </div>
 </section>
 

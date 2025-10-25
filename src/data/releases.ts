@@ -16,10 +16,10 @@ export type Release = {
 export const releases: Release[] = [
   {
     id: 'latest-single',
-    title: '（曲名未定）',
+    title: '世界は僕らをおいて',
     year: 2025,
-    type: 'Single',
-    cover: '/images/releases/latest-single.jpg',
+    type: 'EP',
+    cover: '/images/releases/latest-single.png',
     embed: { youtube: 'https://youtu.be/4aaufut-Uww?si=6WRR6nDznC9BXo38' },
     links: {
       youtube: 'https://youtu.be/4aaufut-Uww?si=6WRR6nDznC9BXo38'

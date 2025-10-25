@@ -26,8 +26,8 @@ export default {
         pop: '0 10px 20px rgba(37, 99, 235, 0.15)',
       },
       fontFamily: {
-        heading: ['Poppins', 'Outfit', 'system-ui', 'Helvetica', 'sans-serif'],
-        body: ['Noto Sans JP', 'sans-serif'],
+        heading: ['Zen Maru Gothic', 'M PLUS Rounded 1c', 'system-ui', 'sans-serif'],
+        body: ['M PLUS Rounded 1c', 'Zen Maru Gothic', 'sans-serif'],
       },
     },
   },

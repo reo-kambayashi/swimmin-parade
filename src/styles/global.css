@@ -12,8 +12,8 @@
   --color-brand-light: #dbeafe;
   --color-brand-sky: #38bdf8;
 
-  --font-heading: 'Poppins', 'Outfit', system-ui, Helvetica, sans-serif;
-  --font-body: 'Noto Sans JP', sans-serif;
+  --font-heading: 'Zen Maru Gothic', 'M PLUS Rounded 1c', system-ui, sans-serif;
+  --font-body: 'M PLUS Rounded 1c', 'Zen Maru Gothic', sans-serif;
 
   --radius-2xl: 1rem;
   --shadow-pop: 0 10px 20px rgba(37, 99, 235, 0.15);
