@@ -9,7 +9,7 @@ import { members } from '../data/members.ts';
       {members.map(member => (
         <a
           href={`/members#${member.id}`}
-          class="group flex flex-col items-center rounded-3xl bg-white/80 p-4 text-center shadow-[0_18px_36px_rgba(148,197,255,0.25)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          class="group flex flex-col items-center rounded-3xl bg-white/80 p-4 text-center shadow-[0_18px_36px_rgba(148,197,255,0.25)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-1 focus-ring"
         >
           <div class="relative mb-4 h-28 w-28 overflow-hidden rounded-full border border-white/70 shadow-md sm:h-32 sm:w-32">
             <img src={member.photo} alt={member.name} class="h-full w-full object-cover" loading="lazy" decoding="async" />
@@ -23,7 +23,7 @@ import { members } from '../data/members.ts';
     <div class="mt-12 text-center">
       <a
         href="/members"
-        class="inline-flex items-center justify-center rounded-full border border-primary/30 bg-white/90 px-8 py-3 text-base font-semibold text-primary shadow-pop transition-transform duration-300 hover:-translate-y-0.5 hover:border-primary/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        class="btn-pill btn-float focus-ring border border-primary/30 bg-white/90 px-8 py-3 text-base text-primary shadow-pop duration-300 hover:border-primary/50"
       >
         View All Members
       </a>

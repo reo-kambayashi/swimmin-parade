@@ -93,7 +93,7 @@ export default function ReleaseModal({ releases }) {
                   href={activeRelease.links.subscription}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-primary/30 bg-white px-6 py-3 text-sm font-semibold text-primary transition-transform duration-200 hover:-translate-y-0.5 hover:border-primary/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-base"
+                  className="btn-pill btn-float focus-ring border border-primary/30 bg-white px-6 py-3 text-sm text-primary duration-200 hover:border-primary/50 sm:text-base"
                 >
                   Subscription
                 </a>
@@ -103,7 +103,7 @@ export default function ReleaseModal({ releases }) {
                   href={activeRelease.links.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-base"
+                  className="btn-pill btn-float focus-ring bg-red-600 px-6 py-3 text-sm text-white duration-200 hover:bg-red-700 sm:text-base"
                 >
                   YouTube
                 </a>
@@ -113,7 +113,7 @@ export default function ReleaseModal({ releases }) {
         </div>
         <button
           onClick={closeModal}
-          className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/10 text-text transition-colors duration-200 hover:bg-black/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className="focus-ring absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/10 text-text transition-colors duration-200 hover:bg-black/20"
           aria-label="モーダルを閉じる"
         >
           <svg

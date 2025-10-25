@@ -51,7 +51,7 @@ export default function MemberModal({ members }) {
           </div>
           <p className="w-full max-w-xl text-sm leading-relaxed text-text/80 sm:text-base">{activeMember.bio}</p>
         </div>
-        <button onClick={closeModal} className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/10 text-text transition-colors duration-300 hover:bg-black/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" aria-label="モーダルを閉じる">
+        <button onClick={closeModal} className="focus-ring absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/10 text-text transition-colors duration-300 hover:bg-black/20" aria-label="モーダルを閉じる">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

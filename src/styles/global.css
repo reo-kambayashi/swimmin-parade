@@ -20,13 +20,56 @@
 }
 
 @layer base {
+  :root {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.25rem;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      scroll-padding-top: 6.5rem;
+    }
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--color-text);
+  }
+
   body {
     background-color: var(--color-background);
     font-family: var(--font-body);
     color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
   }
 
   a {
     color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@layer components {
+  .focus-ring {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+
+  .focus-ring-lg {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary;
+  }
+
+  .btn-pill {
+    @apply inline-flex min-h-[44px] items-center justify-center rounded-full font-semibold transition-transform;
+  }
+
+  .btn-float {
+    @apply hover:-translate-y-0.5;
   }
 }

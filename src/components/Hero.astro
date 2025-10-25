@@ -1,17 +1,17 @@
-<section class="relative min-h-[560px] overflow-hidden bg-[#050b20] text-white md:min-h-[680px]">
+<section class="hero-section relative min-h-[420px] overflow-hidden bg-[#050b20] text-white sm:min-h-[480px] md:min-h-[520px] lg:min-h-[600px]">
   <div class="hero-dynamic-bg absolute inset-0" aria-hidden="true"></div>
   <div class="absolute inset-0 opacity-40" aria-hidden="true">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,#ffffff33,transparent_65%)]"></div>
   </div>
-  <div class="relative mx-auto flex max-w-7xl items-center justify-center px-4 py-20 sm:px-6 sm:py-28 lg:px-12 lg:py-44">
-    <div class="animate-fade-in-up relative w-full max-w-lg">
-      <div class="pointer-events-none absolute -top-10 -left-12 hidden h-40 w-40 rounded-full border border-white/30 md:block"></div>
-      <div class="pointer-events-none absolute -bottom-16 -right-20 hidden h-56 w-56 rounded-[4rem] bg-white/20 blur-2xl md:block"></div>
-      <div class="hero-card relative rounded-[3rem] border border-white/15 bg-white/10 p-6 shadow-xl shadow-primary/20 backdrop-blur-lg sm:p-8">
+  <div class="relative mx-auto flex max-w-5xl items-center justify-center px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
+    <div class="animate-fade-in-up relative w-full max-w-md">
+      <div class="pointer-events-none absolute -top-8 -left-10 hidden h-32 w-32 rounded-full border border-white/25 md:block"></div>
+      <div class="pointer-events-none absolute -bottom-12 -right-16 hidden h-44 w-44 rounded-[3rem] bg-white/15 blur-xl md:block"></div>
+      <div class="hero-card relative rounded-[2.5rem] border border-white/12 bg-white/10 p-5 shadow-xl shadow-primary/20 backdrop-blur-lg sm:p-6">
         <img
           src="/images/Y102_swimmin' parade.jpg"
           alt="swimmin' parade メンバーによるライブショット"
-          class="hero-image aspect-square w-full rounded-[2.5rem] object-contain"
+          class="hero-image aspect-square w-full rounded-[2rem] object-contain"
           loading="eager"
           decoding="async"
         />
@@ -24,14 +24,14 @@
   .hero-dynamic-bg {
     position: absolute;
     background-image:
-      conic-gradient(from 300deg at 20% 20%, rgba(190, 227, 248, 0.85), rgba(236, 244, 255, 0.2) 65%),
-      conic-gradient(from 120deg at 80% 25%, rgba(165, 218, 255, 0.68), rgba(224, 231, 255, 0.18) 70%),
-      radial-gradient(70% 90% at 50% 80%, rgba(147, 197, 253, 0.45), transparent 75%),
+      conic-gradient(from 300deg at 20% 20%, rgba(190, 227, 248, 0.75), rgba(236, 244, 255, 0.18) 60%),
+      conic-gradient(from 130deg at 80% 25%, rgba(165, 218, 255, 0.55), rgba(224, 231, 255, 0.15) 65%),
+      radial-gradient(70% 90% at 50% 80%, rgba(147, 197, 253, 0.35), transparent 70%),
       linear-gradient(120deg, #f8fbff 0%, #e2ecff 40%, #cbd9ff 70%, #b7ceff 100%);
-    background-size: 280% 280%, 220% 220%, 240% 240%, 100% 100%;
-    background-position: 15% 30%, 85% 10%, 50% 100%, 50% 50%;
-    animation: hero-gradient 10s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
-    filter: saturate(120%) brightness(108%);
+    background-size: 200% 200%, 180% 180%, 220% 220%, 100% 100%;
+    background-position: 25% 40%, 75% 15%, 50% 90%, 50% 50%;
+    animation: hero-gradient 9s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+    filter: saturate(115%) brightness(105%);
     overflow: hidden;
   }
 
@@ -39,14 +39,14 @@
   .hero-dynamic-bg::after {
     content: "";
     position: absolute;
-    inset: -40%;
+    inset: -32%;
     border-radius: 50%;
     background:
       radial-gradient(closest-side at 25% 30%, rgba(209, 233, 255, 0.85), transparent 70%),
       radial-gradient(closest-side at 70% 65%, rgba(147, 197, 253, 0.75), transparent 60%);
-    filter: blur(60px) saturate(130%);
+    filter: blur(50px) saturate(125%);
     mix-blend-mode: screen;
-    opacity: 0.55;
+    opacity: 0.5;
   }
 
   .hero-dynamic-bg::before {
@@ -60,36 +60,36 @@
 
   @keyframes hero-gradient {
     0% {
-      background-position: 15% 30%, 85% 10%, 50% 100%, 45% 45%;
+      background-position: 25% 40%, 75% 15%, 50% 90%, 48% 48%;
       transform: scale(1);
     }
     100% {
-      background-position: 85% 70%, 15% 60%, 60% 0%, 55% 55%;
-      transform: scale(1.08);
+      background-position: 70% 65%, 30% 45%, 55% 20%, 52% 52%;
+      transform: scale(1.06);
     }
   }
 
   @keyframes hero-aurora {
     0% {
-      transform: translate3d(-6%, -8%, 0) rotate(-8deg) scale(0.95);
+      transform: translate3d(-4%, -6%, 0) rotate(-6deg) scale(0.94);
     }
     50% {
-      transform: translate3d(8%, 6%, 0) rotate(6deg) scale(1.05);
+      transform: translate3d(6%, 4%, 0) rotate(5deg) scale(1.03);
     }
     100% {
-      transform: translate3d(-4%, 10%, 0) rotate(-4deg) scale(1.08);
+      transform: translate3d(-3%, 8%, 0) rotate(-3deg) scale(1.06);
     }
   }
 
   @keyframes hero-aurora-alt {
     0% {
-      transform: translate3d(12%, -6%, 0) rotate(12deg) scale(1.05);
+      transform: translate3d(10%, -4%, 0) rotate(10deg) scale(1.02);
     }
     50% {
-      transform: translate3d(-8%, 10%, 0) rotate(-10deg) scale(0.9);
+      transform: translate3d(-6%, 8%, 0) rotate(-8deg) scale(0.92);
     }
     100% {
-      transform: translate3d(10%, 4%, 0) rotate(18deg) scale(1.12);
+      transform: translate3d(8%, 3%, 0) rotate(14deg) scale(1.08);
     }
   }
 
@@ -108,33 +108,57 @@
 
   @media (max-width: 640px) {
     .hero-dynamic-bg {
-      background-size: 320% 320%, 260% 260%, 280% 280%, 140% 140%;
-      animation-duration: 8s;
+      background-size: 260% 260%, 220% 220%, 240% 240%, 140% 140%;
+      animation-duration: 7s;
     }
 
     .hero-dynamic-bg::before,
     .hero-dynamic-bg::after {
-      inset: -55%;
-      opacity: 0.65;
+      inset: -48%;
+      opacity: 0.6;
     }
 
     .hero-dynamic-bg::after {
-      opacity: 0.4;
-      filter: blur(80px) saturate(150%);
+      opacity: 0.35;
+      filter: blur(70px) saturate(140%);
     }
 
     .hero-card {
-      border-radius: 2.4rem;
-      padding: 1.75rem;
-      background-color: rgba(255, 255, 255, 0.16);
-      box-shadow:
-        0 24px 60px rgba(148, 197, 255, 0.35),
-        0 12px 30px rgba(59, 113, 202, 0.22);
+      border-radius: 2rem;
+      padding: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 18px 48px rgba(148, 197, 255, 0.28);
     }
 
     .hero-image {
-      border-radius: 2rem;
-      box-shadow: 0 18px 45px rgba(148, 197, 255, 0.4);
+      border-radius: 1.75rem;
+      box-shadow: 0 14px 36px rgba(148, 197, 255, 0.35);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero-section {
+      padding-top: 4.5rem !important;
+    }
+    .hero-card {
+      padding: 1.35rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-dynamic-bg,
+    .hero-dynamic-bg::before,
+    .hero-dynamic-bg::after {
+      animation: none !important;
+      transform: none !important;
+    }
+
+    .animate-fade-in-up {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1;
+      animation-name: none !important;
+      opacity: 1;
+      transform: none !important;
     }
   }
 </style>
