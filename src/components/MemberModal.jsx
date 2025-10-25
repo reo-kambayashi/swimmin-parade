@@ -68,7 +68,6 @@ export default function MemberModal({ members }) {
           </svg>
         </button>
         <div className="mt-6 flex flex-col items-center gap-3 text-xs text-text/60 sm:flex-row sm:justify-between sm:text-sm">
-          <span>メンバーの詳細はモバイルでもスワイプでご覧いただけます。</span>
           <button onClick={closeModal} className="text-primary underline-offset-4 transition-colors duration-200 hover:underline">
             閉じる
           </button>
