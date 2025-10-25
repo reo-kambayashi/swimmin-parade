@@ -1,0 +1,26 @@
+---
+import { releases } from '../data/releases.ts';
+
+const latestRelease = releases.find(r => r.isLatest);
+---
+
+<section id="latest" class="py-20 sm:py-32">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-12 font-heading">Latest Release</h2>
+    {latestRelease && (
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <img src={latestRelease.cover} alt={latestRelease.title} class="w-full rounded-2xl shadow-lg" />
+        <div>
+          <h3 class="text-3xl font-bold mb-2 font-heading">{latestRelease.title}</h3>
+          <p class="text-lg mb-4">{latestRelease.year} {latestRelease.type}</p>
+          <p class="mb-6">（ここに短いコピーが入ります）</p>
+          <div class="flex space-x-4">
+            <a href={latestRelease.links.youtube} target="_blank" rel="noopener noreferrer" class="bg-primary text-white font-bold py-3 px-8 rounded-full hover:bg-primary/90 transition-colors">
+              Listen on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+</section>

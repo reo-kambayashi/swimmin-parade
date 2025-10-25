@@ -1,0 +1,39 @@
+---
+import MobileMenu from './MobileMenu.jsx';
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/members', label: 'Members' },
+  { href: '/releases', label: 'Releases' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+<header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-sm transition-shadow duration-300 shadow-none group">
+  <div class="container mx-auto px-4">
+    <nav class="flex items-center justify-between h-20">
+      <a href="/" class="text-2xl font-bold font-heading text-text">
+        swimmin' parade
+      </a>
+      <ul class="hidden md:flex items-center space-x-2">
+        {navItems.map(item => (
+          <li>
+            <a href={item.href} class="px-4 py-2 rounded-full hover:bg-primary-light transition-colors duration-300">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <MobileMenu client:load />
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 10) {
+      header.classList.add('shadow-md');
+    } else {
+      header.classList.remove('shadow-md');
+    }
+  });
+</script>

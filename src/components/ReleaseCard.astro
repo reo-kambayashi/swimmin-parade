@@ -1,0 +1,20 @@
+---
+import type { Release } from '../../data/releases';
+
+interface Props {
+  release: Release;
+}
+
+const { release } = Astro.props;
+---
+
+<a href={`/releases#${release.id}`} class="group block">
+  <div class="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-pop transition-all duration-300 transform group-hover:scale-105">
+    <img src={release.cover} alt={release.title} class="w-full h-auto aspect-square object-cover" />
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="absolute bottom-4 left-4 text-white">
+      <h3 class="text-xl font-bold font-heading">{release.title}</h3>
+      <p class="text-white/80">{release.year} &bull; {release.type}</p>
+    </div>
+  </div>
+</a>

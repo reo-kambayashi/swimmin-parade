@@ -1,0 +1,25 @@
+---
+import { members } from '../data/members.ts';
+---
+
+<section class="bg-primary-light py-20 sm:py-32">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-12 font-heading">Members</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {members.map(member => (
+        <a href={`/members#${member.id}`} class="group text-center">
+          <div class="relative overflow-hidden rounded-full w-32 h-32 mx-auto mb-4 shadow-lg group-hover:shadow-pop transition-shadow duration-300">
+            <img src={member.photo} alt={member.name} class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-xl font-bold font-heading">{member.name}</h3>
+          <p class="text-primary">{member.role}</p>
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-12">
+      <a href="/members" class="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-white/90 transition-colors shadow-md">
+        View All Members
+      </a>
+    </div>
+  </div>
+</section>
