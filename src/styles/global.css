@@ -73,3 +73,93 @@
     @apply hover:-translate-y-0.5;
   }
 }
+
+@layer utilities {
+  [data-animate] {
+    --animate-duration: 0.7s;
+    --animate-delay: 0s;
+    --animate-easing: cubic-bezier(0.22, 1, 0.36, 1);
+    --animate-distance: 32px;
+    --animate-opacity: 0;
+    --animate-opacity-visible: 1;
+    --animate-filter: none;
+    --animate-filter-visible: none;
+    --animate-initial-transform: translate3d(0, 0, 0);
+    --animate-visible-transform: translate3d(0, 0, 0);
+    opacity: var(--animate-opacity);
+    transform: var(--animate-initial-transform);
+    filter: var(--animate-filter);
+    transition-property: transform, opacity, filter;
+    transition-duration: var(--animate-duration);
+    transition-timing-function: var(--animate-easing);
+    transition-delay: var(--animate-delay);
+    will-change: transform, opacity, filter;
+  }
+
+  [data-animate].anim-ready {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+
+  [data-animate].is-visible {
+    opacity: var(--animate-opacity-visible);
+    transform: var(--animate-visible-transform);
+    filter: var(--animate-filter-visible);
+  }
+
+  [data-animate='fade-up'] {
+    --animate-initial-transform: translate3d(0, var(--animate-distance, 32px), 0);
+  }
+
+  [data-animate='fade-down'] {
+    --animate-initial-transform: translate3d(0, calc(var(--animate-distance, 32px) * -1), 0);
+  }
+
+  [data-animate='fade-in'] {
+    --animate-initial-transform: translate3d(0, 0, 0);
+  }
+
+  [data-animate='slide-left'] {
+    --animate-initial-transform: translate3d(var(--animate-distance, 40px), 0, 0);
+  }
+
+  [data-animate='slide-right'] {
+    --animate-initial-transform: translate3d(calc(var(--animate-distance, 40px) * -1), 0, 0);
+  }
+
+  [data-animate='scale-fade'] {
+    --animate-initial-transform: translate3d(0, var(--animate-distance, 20px), 0) scale3d(0.92, 0.92, 1);
+    --animate-filter: blur(12px);
+    --animate-filter-visible: blur(0px);
+  }
+
+  [data-animate='tilt-float'] {
+    --animate-perspective-fallback: 900px;
+    --animate-initial-transform: perspective(var(--animate-perspective, var(--animate-perspective-fallback))) rotateX(12deg)
+      translate3d(0, var(--animate-distance, 36px), 0);
+    --animate-visible-transform: perspective(var(--animate-perspective, var(--animate-perspective-fallback))) rotateX(0deg)
+      translate3d(0, 0, 0);
+  }
+
+  [data-animate='zoom-out'] {
+    --animate-initial-transform: scale3d(1.08, 1.08, 1);
+  }
+
+  [data-animate='float-up'] {
+    --animate-initial-transform: translate3d(0, var(--animate-distance, 16px), 0);
+    --animate-visible-transform: translate3d(0, calc(var(--animate-distance, 16px) * -0.1), 0);
+  }
+
+  [data-animate='pulse-fade'] {
+    --animate-initial-transform: scale3d(0.95, 0.95, 1);
+    --animate-visible-transform: scale3d(1, 1, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate] {
+      transition-duration: 0.01ms !important;
+      transition-delay: 0ms !important;
+      transition-property: none !important;
+    }
+  }
+}

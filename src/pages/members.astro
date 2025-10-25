@@ -7,8 +7,14 @@ import MemberModal from '../components/MemberModal.jsx';
 
 <Layout title="Members">
   <div class="mx-auto max-w-6xl px-4 py-16 sm:py-28">
-    <h1 class="mb-10 text-center text-3xl font-bold font-heading text-text sm:mb-14 sm:text-5xl">Members</h1>
-    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4 lg:gap-8">
+    <h1
+      class="mb-10 text-center text-3xl font-bold font-heading text-text sm:mb-14 sm:text-5xl"
+      data-animate="fade-up"
+      data-animate-distance="40px"
+    >
+      Members
+    </h1>
+    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4 lg:gap-8" data-animate-stagger="0.08s">
       {members.map(member => (
         <MemberCard member={member} />
       ))}

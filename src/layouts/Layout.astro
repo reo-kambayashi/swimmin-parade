@@ -1,6 +1,7 @@
 ---
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import ScrollAnimator from '../components/ScrollAnimator.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -53,11 +54,12 @@ const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
 		})} />
 
 	</head>
-	<body class="bg-background font-body text-text">
+	<body class="flex min-h-screen flex-col bg-background font-body text-text">
 		<SiteHeader />
-		<main class="pt-[4.75rem] sm:pt-20">
+		<main class="flex-1 pt-[4.75rem] sm:pt-20">
 			<slot />
 		</main>
 		<SiteFooter />
+		<ScrollAnimator />
 	</body>
 </html>
