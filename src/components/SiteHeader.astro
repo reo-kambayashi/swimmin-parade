@@ -7,16 +7,16 @@ const navItems = [
   { href: '/contact', label: 'Contact' },
 ];
 ---
-<header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-sm transition-shadow duration-300 shadow-none group">
-  <div class="mx-auto max-w-6xl px-4">
-    <nav class="flex items-center justify-between h-20">
-      <a href="/" class="text-2xl font-bold font-heading text-text">
+<header data-site-header class="fixed top-0 left-0 right-0 z-40 bg-white/75 backdrop-blur-md transition-all duration-300 shadow-none">
+  <div class="mx-auto flex h-16 max-w-6xl items-center px-4 sm:h-20 sm:px-6">
+    <nav class="flex w-full items-center justify-between">
+      <a href="/" class="text-xl font-bold font-heading text-text sm:text-2xl">
         swimmin' parade
       </a>
-      <ul class="hidden md:flex items-center space-x-2">
+      <ul class="hidden items-center space-x-1 rounded-full bg-white/60 px-1 py-1 shadow-sm ring-1 ring-white/60 md:flex">
         {navItems.map(item => (
           <li>
-            <a href={item.href} class="px-4 py-2 rounded-full hover:bg-primary-light transition-colors duration-300">
+            <a href={item.href} class="inline-flex rounded-full px-4 py-2 text-sm font-medium text-text transition-colors duration-300 hover:bg-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-base">
               {item.label}
             </a>
           </li>
@@ -28,12 +28,17 @@ const navItems = [
 </header>
 
 <script>
-  document.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 10) {
-      header.classList.add('shadow-md');
-    } else {
-      header.classList.remove('shadow-md');
-    }
-  });
+  const header = document.querySelector('header[data-site-header]');
+  if (header) {
+    const toggleHeaderState = () => {
+      if (window.scrollY > 12) {
+        header.classList.add('shadow-md', 'bg-white/90');
+      } else {
+        header.classList.remove('shadow-md', 'bg-white/90');
+      }
+    };
+
+    toggleHeaderState();
+    document.addEventListener('scroll', toggleHeaderState, { passive: true });
+  }
 </script>

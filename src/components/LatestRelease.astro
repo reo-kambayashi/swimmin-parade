@@ -4,23 +4,68 @@ import { releases } from '../data/releases.ts';
 const latestRelease = releases.find(r => r.isLatest);
 ---
 
-<section id="latest" class="py-20 sm:py-32">
+<section id="latest" class="py-16 sm:py-28">
   <div class="mx-auto max-w-6xl px-4">
-    <h2 class="text-4xl font-bold text-center mb-12 font-heading">Latest Release</h2>
+    <h2 class="mb-10 text-center text-3xl font-bold font-heading text-text sm:mb-14 sm:text-4xl">Latest Release</h2>
     {latestRelease && (
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <img src={latestRelease.cover} alt={latestRelease.title} class="w-full rounded-2xl shadow-lg" />
-        <div>
-          <h3 class="text-3xl font-bold mb-2 font-heading">{latestRelease.title}</h3>
-          <p class="text-lg mb-4">{latestRelease.year} {latestRelease.type}</p>
-          <p class="mb-6">（ここに短いコピーが入ります）</p>
-          <div class="flex space-x-4">
-            <a href={latestRelease.links.youtube} target="_blank" rel="noopener noreferrer" class="bg-primary text-white font-bold py-3 px-8 rounded-full hover:bg-primary/90 transition-colors">
-              Listen on YouTube
-            </a>
+      <article class="rounded-[2.5rem] border border-white/40 bg-white/75 p-6 shadow-[0_24px_60px_rgba(148,197,255,0.24)] backdrop-blur-xl sm:p-10">
+        <div class="grid gap-8 md:grid-cols-[minmax(0,320px)_1fr] md:gap-12">
+          <img
+            src={latestRelease.cover}
+            alt={latestRelease.title}
+            class="mx-auto w-full max-w-xs rounded-[2rem] border border-primary/10 bg-white/80 p-4 shadow-lg sm:max-w-sm md:mx-0 md:max-w-none"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="flex flex-col justify-center space-y-4 text-center md:text-left">
+            <div>
+              <p class="text-xs uppercase tracking-[0.45em] text-primary sm:text-sm">New</p>
+              <h3 class="text-2xl font-bold font-heading text-text sm:text-3xl">{latestRelease.title}</h3>
+              <p class="text-base text-text/80 sm:text-lg">{latestRelease.year} {latestRelease.type}</p>
+            </div>
+            {latestRelease.tracks ? (
+              <div class="rounded-3xl border border-primary/20 bg-white/70 p-4 text-left shadow-inner sm:p-6">
+                <p class="text-xs font-semibold uppercase tracking-[0.4em] text-primary/80 sm:text-sm">Tracklist</p>
+                <ol class="mt-3 space-y-2 text-sm leading-relaxed text-text/85 sm:text-base">
+                  {latestRelease.tracks.map(track => (
+                    <li class="flex items-start gap-3">
+                      <span class="min-w-[2ch] text-sm font-semibold text-primary/85 sm:text-base">
+                        {String(track.no).padStart(2, '0')}
+                      </span>
+                      <span class="flex-1">{track.title}</span>
+                      {track.length && <span class="text-sm text-text/60">{track.length}</span>}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : (
+              <p class="text-sm leading-relaxed text-text/75 sm:text-base">
+                光の粒がきらめく夜景みたいに、シティポップの高揚感を閉じ込めた 1 曲。イヤフォンから広がる余韻を心ゆくまでどうぞ。
+              </p>
+            )}
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href={latestRelease.links.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-base font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto"
+              >
+                Listen on YouTube
+              </a>
+              {latestRelease.links?.subscription && (
+                <a
+                  href={latestRelease.links.subscription}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex w-full items-center justify-center rounded-full border border-primary/30 px-6 py-3 text-base font-semibold text-text transition-transform duration-300 hover:-translate-y-0.5 hover:border-primary/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto"
+                >
+                  Streaming Links
+                </a>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </article>
     )}
   </div>
 </section>

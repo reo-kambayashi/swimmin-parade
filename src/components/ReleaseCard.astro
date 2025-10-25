@@ -8,13 +8,40 @@ interface Props {
 const { release } = Astro.props;
 ---
 
-<a href={`/releases#${release.id}`} class="group block">
-  <div class="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-pop transition-all duration-300 transform group-hover:scale-105">
-    <img src={release.cover} alt={release.title} class="w-full h-auto aspect-square object-cover" />
-    <div class="absolute inset-0 bg-black/20"></div>
-    <div class="absolute bottom-4 left-4 text-white">
-      <h3 class="text-xl font-bold font-heading">{release.title}</h3>
-      <p class="text-white/80">{release.year} &bull; {release.type}</p>
+<div class="group block">
+  <a
+    href={`/releases#${release.id}`}
+    class="block overflow-hidden rounded-[2rem] border border-white/40 bg-black/10 shadow-[0_28px_50px_rgba(15,23,42,0.25)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_38px_70px_rgba(15,23,42,0.28)]"
+  >
+    <div class="relative aspect-square">
+      <img src={release.cover} alt={release.title} class="h-full w-full object-cover" loading="lazy" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 right-4 text-white sm:bottom-5">
+        <h3 class="text-lg font-bold font-heading sm:text-xl">{release.title}</h3>
+        <p class="text-sm text-white/80 sm:text-base">{release.year} &bull; {release.type}</p>
+      </div>
     </div>
+  </a>
+  <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+    {release.links?.subscription && (
+      <a
+        href={release.links.subscription}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/40 bg-white/90 px-5 py-2 text-sm font-semibold text-primary shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:border-primary/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-6 sm:text-base"
+      >
+        Subscription
+      </a>
+    )}
+    {release.links?.youtube && (
+      <a
+        href={release.links.youtube}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-red-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-6 sm:text-base"
+      >
+        YouTube
+      </a>
+    )}
   </div>
-</a>
+</div>

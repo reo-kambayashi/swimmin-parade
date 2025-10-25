@@ -6,9 +6,9 @@ import ReleaseModal from '../components/ReleaseModal.jsx';
 ---
 
 <Layout title="Releases">
-  <div id="latest" class="mx-auto max-w-6xl px-4 py-20 sm:py-32">
-    <h1 class="text-5xl font-bold text-center mb-12 font-heading">Releases</h1>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div id="latest" class="mx-auto max-w-6xl px-4 py-16 sm:py-28">
+    <h1 class="mb-10 text-center text-3xl font-bold font-heading text-text sm:mb-14 sm:text-5xl">Releases</h1>
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {releases.sort((a, b) => b.year - a.year).map(release => (
         <ReleaseCard release={release} />
       ))}

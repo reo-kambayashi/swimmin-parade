@@ -18,6 +18,7 @@ export default function ReleaseModal({ releases }) {
 
   useEffect(() => {
     if (activeRelease) {
+      document.body.classList.add('overflow-hidden');
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.innerHTML = JSON.stringify({
@@ -37,8 +38,10 @@ export default function ReleaseModal({ releases }) {
 
       return () => {
         document.head.removeChild(script);
+        document.body.classList.remove('overflow-hidden');
       };
     }
+    document.body.classList.remove('overflow-hidden');
   }, [activeRelease]);
 
   const closeModal = () => {
@@ -48,30 +51,71 @@ export default function ReleaseModal({ releases }) {
   if (!activeRelease) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={closeModal}>
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl w-full" onClick={e => e.stopPropagation()}>
-        <div className="grid md:grid-cols-2 gap-8">
-          <img src={activeRelease.cover} alt={activeRelease.title} className="w-full rounded-lg shadow-md" />
-          <div>
-            <h2 className="text-3xl font-bold font-heading mb-2">{activeRelease.title}</h2>
-            <p className="text-lg mb-4">{activeRelease.year} &bull; {activeRelease.type}</p>
-            {activeRelease.embed?.youtube && (
-              <div className="relative mb-4 overflow-hidden rounded-lg" style={{ paddingTop: '56.25%' }}>
+    <div
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 px-4 pb-6 pt-12 sm:items-center sm:p-10"
+      onClick={closeModal}
+    >
+      <div
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] border border-white/60 bg-white p-6 shadow-[0_40px_90px_rgba(15,23,42,0.25)] sm:p-10"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-12">
+          <img src={activeRelease.cover} alt={activeRelease.title} className="w-full rounded-[1.75rem] border border-primary/10 bg-white/80 p-4 shadow-lg" loading="lazy" decoding="async" />
+          <div className="flex flex-col gap-4">
+            <h2 className="text-2xl font-bold font-heading text-text sm:text-3xl">{activeRelease.title}</h2>
+            <p className="text-base text-text/80 sm:text-lg">{activeRelease.year} &bull; {activeRelease.type}</p>
+            {activeRelease.embed?.subscription ? (
+              <div className="relative mb-4 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 shadow-inner" style={{ minHeight: '420px' }}>
                 <iframe
-                  src={activeRelease.embed.youtube.replace('watch?v=', 'embed/')}
-                  title={activeRelease.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                  src={activeRelease.embed.subscription}
+                  title={`${activeRelease.title} subscription`}
+                  allow="autoplay; encrypted-media"
                   className="absolute inset-0 h-full w-full"
+                  sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
                 ></iframe>
               </div>
+            ) : (
+              activeRelease.embed?.youtube && (
+                <div className="relative overflow-hidden rounded-2xl border border-slate-200 shadow-inner" style={{ paddingTop: '56.25%' }}>
+                  <iframe
+                    src={activeRelease.embed.youtube.replace('watch?v=', 'embed/')}
+                    title={activeRelease.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full"
+                  ></iframe>
+                </div>
+              )
             )}
-            <div className="flex flex-wrap gap-2">
-                {activeRelease.links?.youtube && <a href={activeRelease.links.youtube} target="_blank" rel="noopener noreferrer" className="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors">YouTube</a>}
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              {activeRelease.links?.subscription && (
+                <a
+                  href={activeRelease.links.subscription}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-primary/30 bg-white px-6 py-3 text-sm font-semibold text-primary transition-transform duration-200 hover:-translate-y-0.5 hover:border-primary/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-base"
+                >
+                  Subscription
+                </a>
+              )}
+              {activeRelease.links?.youtube && (
+                <a
+                  href={activeRelease.links.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-base"
+                >
+                  YouTube
+                </a>
+              )}
             </div>
           </div>
         </div>
-        <button onClick={closeModal} className="absolute top-4 right-4 text-white bg-black/20 rounded-full p-2 hover:bg-black/40 transition-colors" aria-label="Close modal">
+        <button
+          onClick={closeModal}
+          className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/10 text-text transition-colors duration-200 hover:bg-black/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          aria-label="モーダルを閉じる"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -87,6 +131,12 @@ export default function ReleaseModal({ releases }) {
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
+        <div className="mt-6 flex flex-col gap-3 text-xs text-text/60 sm:flex-row sm:items-center sm:justify-between sm:text-sm">
+          <span>画面をタップするとモーダルを閉じられます。モバイルでは上下にスクロールできます。</span>
+          <button onClick={closeModal} className="text-primary underline-offset-4 transition-colors duration-200 hover:underline">
+            閉じる
+          </button>
+        </div>
       </div>
     </div>
   );

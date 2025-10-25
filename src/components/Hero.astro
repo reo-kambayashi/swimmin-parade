@@ -1,34 +1,98 @@
-<section class="relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1d4ed8] to-[#38bdf8] text-white">
-  <div class="absolute inset-0 opacity-30" aria-hidden="true">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,#ffffff33,transparent_65%)] mix-blend-screen"></div>
+<section class="relative min-h-[560px] overflow-hidden bg-[#050b20] text-white md:min-h-[680px]">
+  <div class="hero-dynamic-bg absolute inset-0" aria-hidden="true"></div>
+  <div class="absolute inset-0 opacity-40" aria-hidden="true">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,#ffffff33,transparent_65%)]"></div>
   </div>
-  <div class="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 py-24 sm:py-32 md:flex-row md:items-center md:gap-16 lg:px-8 lg:py-36">
-    <div class="order-2 w-full max-w-xl md:order-1">
-      <div class="animate-fade-in-up rounded-3xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm shadow-pop">
+  <div class="relative mx-auto flex max-w-7xl items-center justify-center px-4 py-20 sm:px-6 sm:py-28 lg:px-12 lg:py-44">
+    <div class="animate-fade-in-up relative w-full max-w-lg">
+      <div class="pointer-events-none absolute -top-10 -left-12 hidden h-40 w-40 rounded-full border border-white/30 md:block"></div>
+      <div class="pointer-events-none absolute -bottom-16 -right-20 hidden h-56 w-56 rounded-[4rem] bg-white/20 blur-2xl md:block"></div>
+      <div class="hero-card relative rounded-[3rem] border border-white/15 bg-white/10 p-6 shadow-xl shadow-primary/20 backdrop-blur-lg sm:p-8">
         <img
           src="/images/Y102_swimmin' parade.jpg"
           alt="swimmin' parade メンバーによるライブショット"
-          class="aspect-square w-full rounded-2xl object-contain"
+          class="hero-image aspect-square w-full rounded-[2.5rem] object-contain"
           loading="eager"
           decoding="async"
         />
       </div>
     </div>
-    <div class="order-1 max-w-2xl text-center md:order-2 md:text-left">
-      <h1 class="animate-fade-in-up font-heading text-4xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
-        swimmin' parade
-      </h1>
-      <a
-        href="/releases#latest"
-        class="animation-delay-600 animate-fade-in-up mt-10 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-accent px-10 py-3 text-lg font-semibold text-white shadow-pop transition-transform duration-300 hover:scale-[1.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-      >
-        最新リリースを聴く
-      </a>
-    </div>
   </div>
 </section>
 
 <style>
+  .hero-dynamic-bg {
+    position: absolute;
+    background-image:
+      conic-gradient(from 300deg at 20% 20%, rgba(190, 227, 248, 0.85), rgba(236, 244, 255, 0.2) 65%),
+      conic-gradient(from 120deg at 80% 25%, rgba(165, 218, 255, 0.68), rgba(224, 231, 255, 0.18) 70%),
+      radial-gradient(70% 90% at 50% 80%, rgba(147, 197, 253, 0.45), transparent 75%),
+      linear-gradient(120deg, #f8fbff 0%, #e2ecff 40%, #cbd9ff 70%, #b7ceff 100%);
+    background-size: 280% 280%, 220% 220%, 240% 240%, 100% 100%;
+    background-position: 15% 30%, 85% 10%, 50% 100%, 50% 50%;
+    animation: hero-gradient 10s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+    filter: saturate(120%) brightness(108%);
+    overflow: hidden;
+  }
+
+  .hero-dynamic-bg::before,
+  .hero-dynamic-bg::after {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    border-radius: 50%;
+    background:
+      radial-gradient(closest-side at 25% 30%, rgba(209, 233, 255, 0.85), transparent 70%),
+      radial-gradient(closest-side at 70% 65%, rgba(147, 197, 253, 0.75), transparent 60%);
+    filter: blur(60px) saturate(130%);
+    mix-blend-mode: screen;
+    opacity: 0.55;
+  }
+
+  .hero-dynamic-bg::before {
+    animation: hero-aurora 7.5s ease-in-out infinite alternate;
+  }
+
+  .hero-dynamic-bg::after {
+    animation: hero-aurora-alt 12s ease-in-out infinite;
+    opacity: 0.35;
+  }
+
+  @keyframes hero-gradient {
+    0% {
+      background-position: 15% 30%, 85% 10%, 50% 100%, 45% 45%;
+      transform: scale(1);
+    }
+    100% {
+      background-position: 85% 70%, 15% 60%, 60% 0%, 55% 55%;
+      transform: scale(1.08);
+    }
+  }
+
+  @keyframes hero-aurora {
+    0% {
+      transform: translate3d(-6%, -8%, 0) rotate(-8deg) scale(0.95);
+    }
+    50% {
+      transform: translate3d(8%, 6%, 0) rotate(6deg) scale(1.05);
+    }
+    100% {
+      transform: translate3d(-4%, 10%, 0) rotate(-4deg) scale(1.08);
+    }
+  }
+
+  @keyframes hero-aurora-alt {
+    0% {
+      transform: translate3d(12%, -6%, 0) rotate(12deg) scale(1.05);
+    }
+    50% {
+      transform: translate3d(-8%, 10%, 0) rotate(-10deg) scale(0.9);
+    }
+    100% {
+      transform: translate3d(10%, 4%, 0) rotate(18deg) scale(1.12);
+    }
+  }
+
   .animate-fade-in-up {
     animation: fade-in-up 0.8s ease-out forwards;
     opacity: 0;
@@ -42,11 +106,35 @@
     }
   }
 
-  .animation-delay-300 {
-    animation-delay: 0.3s;
-  }
+  @media (max-width: 640px) {
+    .hero-dynamic-bg {
+      background-size: 320% 320%, 260% 260%, 280% 280%, 140% 140%;
+      animation-duration: 8s;
+    }
 
-  .animation-delay-600 {
-    animation-delay: 0.6s;
+    .hero-dynamic-bg::before,
+    .hero-dynamic-bg::after {
+      inset: -55%;
+      opacity: 0.65;
+    }
+
+    .hero-dynamic-bg::after {
+      opacity: 0.4;
+      filter: blur(80px) saturate(150%);
+    }
+
+    .hero-card {
+      border-radius: 2.4rem;
+      padding: 1.75rem;
+      background-color: rgba(255, 255, 255, 0.16);
+      box-shadow:
+        0 24px 60px rgba(148, 197, 255, 0.35),
+        0 12px 30px rgba(59, 113, 202, 0.22);
+    }
+
+    .hero-image {
+      border-radius: 2rem;
+      box-shadow: 0 18px 45px rgba(148, 197, 255, 0.4);
+    }
   }
 </style>
