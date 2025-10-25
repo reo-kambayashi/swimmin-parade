@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/members', label: 'Members' },
+  { href: '/mv', label: 'MV' },
   { href: '/releases', label: 'Releases' },
   { href: '/contact', label: 'Contact' },
 ];
