@@ -1,3 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #f7faff;
+  --color-surface: #ffffff;
+  --color-primary: #2563eb;
+  --color-primary-light: #dbeafe;
+  --color-accent: #38bdf8;
+  --color-text: #0f172a;
+  --color-border: #e5e7eb;
+  --color-brand: #2563eb;
+  --color-brand-light: #dbeafe;
+  --color-brand-sky: #38bdf8;
+
+  --font-heading: 'Poppins', 'Outfit', system-ui, Helvetica, sans-serif;
+  --font-body: 'Noto Sans JP', sans-serif;
+
+  --radius-2xl: 1rem;
+  --shadow-pop: 0 10px 20px rgba(37, 99, 235, 0.15);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    font-family: var(--font-body);
+    color: var(--color-text);
+  }
+
+  a {
+    color: inherit;
+  }
+}

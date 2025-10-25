@@ -56,14 +56,13 @@ export default function ReleaseModal({ releases }) {
             <h2 className="text-3xl font-bold font-heading mb-2">{activeRelease.title}</h2>
             <p className="text-lg mb-4">{activeRelease.year} &bull; {activeRelease.type}</p>
             {activeRelease.embed?.youtube && (
-              <div className="aspect-w-16 aspect-h-9 mb-4">
+              <div className="relative mb-4 overflow-hidden rounded-lg" style={{ paddingTop: '56.25%' }}>
                 <iframe
                   src={activeRelease.embed.youtube.replace('watch?v=', 'embed/')}
                   title={activeRelease.title}
-                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="w-full h-full rounded-lg"
+                  className="absolute inset-0 h-full w-full"
                 ></iframe>
               </div>
             )}
@@ -73,7 +72,20 @@ export default function ReleaseModal({ releases }) {
           </div>
         </div>
         <button onClick={closeModal} className="absolute top-4 right-4 text-white bg-black/20 rounded-full p-2 hover:bg-black/40 transition-colors" aria-label="Close modal">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
     </div>
