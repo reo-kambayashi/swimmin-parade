@@ -1,46 +1,51 @@
-# Astro Starter Kit: Basics
+# swimmin' parade Official Website
 
-```sh
-npm create astro@latest -- --template basics
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This is the official website for the band "swimmin' parade". It is a static site built with [Astro](https://astro.build/) and [React](https://react.dev/).
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+The project follows the standard Astro project structure:
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   ├── images/
+│   └── ...
+├── src/
+│   ├── components/
+│   ├── data/
+│   ├── layouts/
+│   ├── pages/
+│   └── styles/
+├── astro.config.mjs
+├── package.json
+└── README.md
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+-   **`public/`**: Static assets like images and fonts.
+-   **`src/components/`**: Reusable UI components (Astro and React).
+-   **`src/data/`**: Site data, such as member profiles and release information.
+-   **`src/layouts/`**: Base layouts for pages.
+-   **`src/pages/`**: Site pages.
+-   **`src/styles/`**: Global styles and Tailwind CSS configuration.
 
-## 🧞 Commands
+## 🧞 Development Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root of the project in a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command         | Action                                         |
+| :-------------- | :--------------------------------------------- |
+| `npm install`   | Installs dependencies                          |
+| `npm ci`        | Installs dependencies in CI environments       |
+| `npm run dev`   | Starts the local development server at `localhost:4321` |
+| `npm run build` | Builds the production site to `./dist/`        |
+| `npm run preview` | Previews the built site locally before deploying |
+| `npm run astro check` | Runs type checking and validation |
 
-## 👀 Want to learn more?
+## ✨ Image Optimization
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+All images in this project are optimized and converted to the WebP format to improve performance. For more details on how to add new images and run the conversion script, please refer to the `AGENTS.md` file.
+
+## 🚀 Deployment
+
+This is a static website. The `npm run build` command will generate a `dist/` directory containing the production-ready files. This directory can be deployed to any static hosting service, such as Vercel, Netlify, or GitHub Pages.

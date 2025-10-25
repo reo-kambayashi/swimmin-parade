@@ -19,7 +19,7 @@ export const releases: Release[] = [
     title: '世界は僕らをおいて',
     year: 2024,
     type: 'EP',
-    cover: '/images/releases/latest-single.png',
+    cover: '/images/releases/latest-single.webp',
     embed: {
       subscription: 'https://linkcloud.mu/2cd4e67c'
     },

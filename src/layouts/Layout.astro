@@ -10,7 +10,7 @@ interface Props {
 	image?: string;
 }
 
-const { title, description = "swimmin' parade official website", image = '/og-image.jpg' } = Astro.props;
+const { title, description = "swimmin' parade official website", image = '/og-image.webp' } = Astro.props;
 const siteUrl = 'https://example-band.jp';
 const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
