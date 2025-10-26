@@ -1,12 +1,6 @@
 ---
 import MobileMenu from './MobileMenu.jsx';
-const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/members', label: 'Members' },
-  { href: '/mv', label: 'MV' },
-  { href: '/releases', label: 'Releases' },
-  { href: '/contact', label: 'Contact' },
-];
+import { navigationItems } from '../data/navigation';
 ---
 <header data-site-header class="fixed top-0 left-0 right-0 z-40 bg-white/75 backdrop-blur-md transition-all duration-300 shadow-none">
   <div class="mx-auto flex h-16 max-w-6xl items-center px-4 sm:h-20 sm:px-6">
@@ -15,7 +9,7 @@ const navItems = [
         swimmin' parade
       </a>
       <ul class="hidden items-center space-x-1 rounded-full bg-white/60 px-1 py-1 shadow-sm ring-1 ring-white/60 md:flex">
-        {navItems.map(item => (
+        {navigationItems.map(item => (
           <li>
             <a href={item.href} class="focus-ring inline-flex rounded-full px-4 py-2 text-sm font-medium text-text transition-colors duration-300 hover:bg-primary-light sm:text-base">
               {item.label}

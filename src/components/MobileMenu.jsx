@@ -1,13 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-
-const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/members', label: 'Members' },
-  { href: '/mv', label: 'MV' },
-  { href: '/releases', label: 'Releases' },
-  { href: '/contact', label: 'Contact' },
-];
+import { navigationItems } from '../data/navigation';
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -131,7 +124,7 @@ export default function MobileMenu() {
           </button>
         </div>
         <ul className="space-y-4">
-          {navItems.map((item, index) => (
+          {navigationItems.map((item, index) => (
             <li
               key={item.href}
               className={`transform transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
