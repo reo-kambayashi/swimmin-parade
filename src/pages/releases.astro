@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { releases } from '../data/releases.ts';
+import ReleaseDetail from '../components/ReleaseDetail.astro';
 
 const sortedReleases = [...releases].sort((a, b) => b.year - a.year);
 ---
@@ -12,68 +13,7 @@ const sortedReleases = [...releases].sort((a, b) => b.year - a.year);
     </h1>
     <div class="space-y-16 sm:space-y-24">
       {sortedReleases.map(release => (
-        <article id={release.id} class="rounded-[2.5rem] border border-white/40 bg-white/75 p-6 shadow-[0_24px_60px_rgba(148,197,255,0.24)] backdrop-blur-xl sm:p-10">
-          <div class="grid gap-8 md:grid-cols-[minmax(0,320px)_1fr] md:gap-12">
-            <img
-              src={release.cover}
-              alt={release.title}
-              class="mx-auto w-full max-w-xs rounded-[2rem] border border-primary/10 bg-white/80 p-4 shadow-lg sm:max-w-sm md:mx-0 md:max-w-none"
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="flex flex-col justify-center space-y-4 text-center md:text-left">
-              <div>
-                <p class="text-xs uppercase tracking-[0.45em] text-primary sm:text-sm">{release.type}</p>
-                <h2 class="text-2xl font-bold font-heading text-text sm:text-3xl">{release.title}</h2>
-                <p class="text-base text-text/80 sm:text-lg">
-                  {release.year} {release.type}
-                </p>
-              </div>
-              {release.tracks ? (
-                <div class="rounded-3xl border border-primary/20 bg-white/70 p-4 text-left shadow-inner sm:p-6">
-                  <p class="text-xs font-semibold uppercase tracking-[0.4em] text-primary/80 sm:text-sm">Tracklist</p>
-                  <ol class="mt-3 space-y-2 text-sm leading-relaxed text-text/85 sm:text-base">
-                    {release.tracks.map(track => (
-                      <li class="flex items-start gap-3">
-                        <span class="min-w-[2ch] text-sm font-semibold text-primary/85 sm:text-base">
-                          {String(track.no).padStart(2, '0')}
-                        </span>
-                        <span class="flex-1">{track.title}</span>
-                        {track.length && <span class="text-sm text-text/60">{track.length}</span>}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              ) : (
-                <p class="text-sm leading-relaxed text-text/75 sm:text-base">
-                  光の粒がきらめく夜景みたいに、シティポップの高揚感を閉じ込めた 1 曲。イヤフォンから広がる余韻を心ゆくまでどうぞ。
-                </p>
-              )}
-              <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                {release.links?.youtube && (
-                  <a
-                    href={release.links.youtube}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-pill btn-float focus-ring w-full bg-primary px-6 py-3 text-base text-white duration-300 hover:bg-primary/90 sm:w-auto"
-                  >
-                    Listen on YouTube
-                  </a>
-                )}
-                {release.links?.subscription && (
-                  <a
-                    href={release.links.subscription}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-pill btn-float focus-ring w-full border border-primary/30 px-6 py-3 text-base text-text duration-300 hover:border-primary/60 sm:w-auto"
-                  >
-                    Streaming Links
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        </article>
+        <ReleaseDetail release={release} anchorId={release.id} />
       ))}
     </div>
   </section>
